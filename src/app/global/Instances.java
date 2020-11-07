@@ -10,7 +10,6 @@ import app.seed.Seeder;
 
 import java.util.ArrayList;
 
-
 public class Instances {
     private static Ambulance currentAmbulance;
     private static ArrayList<Patient> globalPatients = new ArrayList<Patient>();
@@ -41,6 +40,10 @@ public class Instances {
         if(currentDoctor instanceof Doctor) globalDoctors.add((Doctor) currentDoctor);
     }
 
+    public static ArrayList<Doctor> getGlobalDoctors() {
+        return globalDoctors;
+    }
+
     public static void addGlobalNurse(Employee currentNurse) {
         if(currentNurse instanceof Nurse) globalNurses.add((Nurse) currentNurse);
     }
@@ -51,6 +54,10 @@ public class Instances {
 
     public static ArrayList<Patient> getGlobalPatients() {
         return globalPatients;
+    }
+
+    public static Patient getGlobalPatient(int index) {
+        return globalPatients.get(index);
     }
 
     public static void addGlobalPatient(Patient newPatient) {

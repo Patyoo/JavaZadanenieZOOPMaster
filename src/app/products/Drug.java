@@ -1,6 +1,6 @@
 package app.products;
 
-public class Drug {
+public class Drug implements GeneralProduct{
     private String name,type,expirationDate;
     private double weight;
 
@@ -11,4 +11,7 @@ public class Drug {
         this.expirationDate=expirationDate;
     }
 
+    public String getProductInfo() {
+        return null;
+    }
 }

@@ -5,7 +5,7 @@ import app.humans.Patient;
 import app.humans.employees.Doctor;
 import app.humans.employees.Employee;
 
-public class Confirmation {
+public class Confirmation implements GeneralProduct{
     private Ambulance ambulance;
     private Patient patient;
 
@@ -13,4 +13,10 @@ public class Confirmation {
         this.ambulance=ambulance;
         this.patient=patient;
     }
+
+ 
+    public String getProductInfo() {
+        return null;
+    }
+
 }

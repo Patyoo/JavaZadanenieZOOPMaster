@@ -1,6 +1,6 @@
 package app.humans.employees;
 
-public abstract class Employee {
+public abstract class Employee implements Human {
     private String name,surname;
     private int ID;
 
@@ -12,6 +12,9 @@ public abstract class Employee {
 
     public String getInfo(){
         return "Name: "+name+", Surname: "+surname+", ID: "+ID;
+    }
+    public String getName(){
+        return  name;
     }
 
 }

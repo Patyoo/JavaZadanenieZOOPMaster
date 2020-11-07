@@ -13,6 +13,10 @@ public class Doctor extends Employee {
         super(name,surname,ID);
     }
 
+    public String getName(){
+        return super.getName();
+    }
+
     public void createConfirmation(Ambulance ambulance,Patient patient){
         this.confirmation=new Confirmation(ambulance,patient);
     }

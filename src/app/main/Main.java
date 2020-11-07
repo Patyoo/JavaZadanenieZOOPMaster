@@ -1,6 +1,7 @@
 package app.main;
 
 import app.Ambulance;
+import app.commands.CommandManager;
 import app.global.Instances;
 import app.humans.Patient;
 import app.humans.employees.Cashier;
@@ -15,23 +16,25 @@ public class Main {
         Seeder defaultSeeder = Seeder.getSeederDefault();
         Instances globalInstances= new Instances(defaultSeeder);
 
-        Ambulance ambulance = globalInstances.getAmbulanceInstance();
+        CommandManager commandManager= new CommandManager();
 
-        System.out.println(ambulance.getCashier().getInfo());
-
-        Employee newCashier= new Cashier("New","Cashier",000);
-
-        ambulance.setCashier(newCashier);
-
-        System.out.println(ambulance.getCashier().getInfo());
-
-        Ambulance newAmbulance = new Ambulance("New","Ambulance");
-        newAmbulance.setCashier( new Cashier("SuperNew","Cashier",000));
-
-        System.out.println(newAmbulance.getCashier().getInfo());
-
-        System.out.println("www");
-        System.out.println(Instances.getGlobalCashier().getInfo());
+//        Ambulance ambulance = globalInstances.getAmbulanceInstance();
+//
+//        System.out.println(ambulance.getCashier().getInfo());
+//
+//        Employee newCashier= new Cashier("New","Cashier",000);
+//
+//        ambulance.setCashier(newCashier);
+//
+//        System.out.println(ambulance.getCashier().getInfo());
+//
+//        Ambulance newAmbulance = new Ambulance("New","Ambulance");
+//        newAmbulance.setCashier( new Cashier("SuperNew","Cashier",000));
+//
+//        System.out.println(newAmbulance.getCashier().getInfo());
+//
+//        System.out.println("www");
+//        System.out.println(Instances.getGlobalCashier().getInfo());
 
 
         //System.out.println(globalInstances.getCurrentCashier().getInfo());
