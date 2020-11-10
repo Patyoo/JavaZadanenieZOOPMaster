@@ -39,7 +39,7 @@ public class DoctorManager implements InputManager{
             if(doctor.getName().equals(nameOfSearchedDoctor)){
                 found=true;
                 System.out.println("Doctor by name "+nameOfSearchedDoctor+" was found! More info:");
-                System.out.println(doctor.getInfo());
+                doctor.getSpecificInfo();
                 break;
             }
         }
@@ -55,8 +55,14 @@ public class DoctorManager implements InputManager{
             System.out.println("1 - Add new Doctor");
             System.out.println("2 - Get info about doctor ");
             int option = scanner.nextInt();
-            if(option == 1) addDoctorToInstances();
-            if(option == 2) getInfoDoctor();
+            switch(option) {
+                case 1:
+                    addDoctorToInstances();
+                    break;
+                case 2:
+                    getInfoDoctor();
+                    break;
+            }
         }
         catch(InputMismatchException | NumberFormatException ex ) {
             System.out.println("Invalid Number, Please try again");

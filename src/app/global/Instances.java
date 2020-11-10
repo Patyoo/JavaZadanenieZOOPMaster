@@ -15,7 +15,7 @@ public class Instances {
     private static ArrayList<Patient> globalPatients = new ArrayList<Patient>();
     private static ArrayList<Doctor> globalDoctors =  new ArrayList<Doctor>();
     private static ArrayList<Nurse> globalNurses =  new ArrayList<Nurse>();
-
+    private static ArrayList<Employee> globalEmployees = new ArrayList<Employee>();
     private static ArrayList<Cashier> globalCashiers =  new ArrayList<Cashier>();
     private static int[] globalNumOfDrugs;
     private static boolean wasInitialized=false;
@@ -28,6 +28,7 @@ public class Instances {
             if(currentAmbulance.getDoctor() instanceof Doctor) globalDoctors.add((Doctor) currentAmbulance.getDoctor());
             if(currentAmbulance.getNurse() instanceof Nurse) globalNurses.add((Nurse) currentAmbulance.getNurse());
             if(currentAmbulance.getCashier() instanceof Cashier) globalCashiers.add((Cashier) currentAmbulance.getCashier());
+            globalEmployees.add(currentAmbulance.getUniversalEmployee());
             globalNumOfDrugs=currentAmbulance.getNumOfDrugs();
         }
     }
@@ -72,8 +73,16 @@ public class Instances {
         globalNumOfDrugs[index] += value;
     }
 
-    public static Cashier getGlobalCashier() {
-        return globalCashiers.get(3);
+    public static Cashier getGlobalCashier(int index) {
+        return globalCashiers.get(index);
+    }
+
+    public static void addGlobalGeneralEmployee(Employee newEmployee) {
+        globalEmployees.add(newEmployee);
+    }
+
+    public static ArrayList<Employee> getGlobalEmployees() {
+        return globalEmployees;
     }
 
 }

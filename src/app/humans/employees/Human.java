@@ -1,6 +1,6 @@
 package app.humans.employees;
 
 public interface Human {
-    public String getInfo();
+    public void getSpecificInfo();
     public String getName();
 }

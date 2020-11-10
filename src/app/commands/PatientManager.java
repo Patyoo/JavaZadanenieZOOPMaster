@@ -34,9 +34,7 @@ public class PatientManager implements InputManager {
         for(Patient patient : Instances.getGlobalPatients()){
             if(patient.getName().equals(nameOfSearchedPatient)){
                 found=true;
-                System.out.println("Patient by name "+nameOfSearchedPatient+" was found! More info:");
-                System.out.println("Surname: "+ patient.getSurname());
-                System.out.println("Age: " + patient.getAge());
+                patient.getSpecificInfo();
                 break;
             }
         }
@@ -52,8 +50,15 @@ public class PatientManager implements InputManager {
                 System.out.println("1 - Add new Patient");
                 System.out.println("2 - Get info about patient ");
                 int option = scanner.nextInt();
-                if(option == 1) addPatientToInstances();
-                if(option == 2) getInfoPatient();
+
+                switch(option) {
+                    case 1:
+                        addPatientToInstances();
+                        break;
+                    case 2:
+                        getInfoPatient();
+                        break;
+                }
             }
             catch(InputMismatchException | NumberFormatException ex ) {
                 System.out.println("Invalid Number, Please try again");

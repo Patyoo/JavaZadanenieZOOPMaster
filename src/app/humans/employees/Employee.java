@@ -1,8 +1,8 @@
 package app.humans.employees;
 
-public abstract class Employee implements Human {
-    private String name,surname;
-    private int ID;
+public class Employee implements Human {
+    protected String name,surname;
+    protected int ID;
 
     public Employee(String name,String surname,int ID){
         this.name=name;
@@ -10,8 +10,8 @@ public abstract class Employee implements Human {
         this.ID=ID;
     }
 
-    public String getInfo(){
-        return "Name: "+name+", Surname: "+surname+", ID: "+ID;
+    public void getSpecificInfo(){
+        System.out.println("(GeneralEmployee) Name: "+name+", surname: "+surname+", ID: "+ID);
     }
     public String getName(){
         return  name;

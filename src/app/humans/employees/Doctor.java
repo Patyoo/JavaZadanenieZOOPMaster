@@ -4,7 +4,7 @@ import app.Ambulance;
 import app.humans.Patient;
 import app.products.Confirmation;
 
-public class Doctor extends Employee {
+public class Doctor extends Employee implements Human{
     private String expertise;
     private boolean hasPatient;
     private Confirmation confirmation;
@@ -15,6 +15,10 @@ public class Doctor extends Employee {
 
     public String getName(){
         return super.getName();
+    }
+
+    public void getSpecificInfo(){
+        System.out.println("(Doctor) Name: "+super.name+", surname: "+super.surname+", ID: "+super.ID + ", expertise: "+expertise);
     }
 
     public void createConfirmation(Ambulance ambulance,Patient patient){

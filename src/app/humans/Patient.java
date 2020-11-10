@@ -1,8 +1,9 @@
 package app.humans;
 
+import app.humans.employees.Human;
 import app.products.Confirmation;
 
-public class Patient  {
+public class Patient  implements Human {
     private String name,surname;
     private int age,ID;
     private boolean isIll,hasReceipt,hasConfirmation;
@@ -17,6 +18,10 @@ public class Patient  {
 
     public void addConfirmation(Confirmation confirmation){
         this.confirmation=confirmation;
+    }
+
+    public void getSpecificInfo(){
+        System.out.println("(Patient) Name: "+name+", Surname: "+surname+", ID: "+ID+" , age: "+age);
     }
 
     public String getName() {

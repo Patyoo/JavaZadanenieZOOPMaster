@@ -12,7 +12,10 @@ import java.util.ArrayList;
 public class Ambulance {
     private String name;
     private String address;
-    private Employee doctor,nurse,cashier;
+    private Employee doctor;
+    private Employee nurse;
+    private Employee cashier;
+    private Employee universalEmployee;
     private ArrayList<Patient> patients = new ArrayList<Patient>();
     private int[] numOfDrugs;
 
@@ -65,7 +68,7 @@ public class Ambulance {
         Instances.addGlobalPatient(patient);
     }
 
-    public int getNumOfDrug(int index) {
+    public int getNumOfDrugs(int index) {
         return numOfDrugs[index];
     }
 
@@ -79,6 +82,14 @@ public class Ambulance {
 
     public void setNumOfDrugs(int[] numOfDrugs) {
         this.numOfDrugs = numOfDrugs;
+    }
+
+    public Employee getUniversalEmployee() {
+        return universalEmployee;
+    }
+
+    public void setUniversalEmployee(Employee universalEmployee) {
+        this.universalEmployee = universalEmployee;
     }
 
 }
