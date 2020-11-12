@@ -16,7 +16,7 @@ public class Ambulance {
     private Employee nurse;
     private Employee cashier;
     private Employee universalEmployee;
-    private ArrayList<Patient> patients = new ArrayList<Patient>();
+    private ArrayList<Patient> patients = new ArrayList<>();
     private int[] numOfDrugs;
 
     public Ambulance(String name, String address){
@@ -31,7 +31,6 @@ public class Ambulance {
 
     public void setDoctor(Employee doctor) {
         this.doctor = doctor;
-        //pozriet ci tam uz nie je vsade?
         Instances.addGlobalDoctor(doctor);
     }
 
@@ -90,6 +89,22 @@ public class Ambulance {
 
     public void setUniversalEmployee(Employee universalEmployee) {
         this.universalEmployee = universalEmployee;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
 }

@@ -1,6 +1,8 @@
 package app.humans.employees;
 
-public class Cashier extends Employee implements Human{
+import app.humans.Human;
+
+public class Cashier extends Employee implements Human {
     boolean hasModifiedListOfDrugs;
 
     public Cashier(String name,String surname,int ID){

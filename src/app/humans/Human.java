@@ -1,4 +1,4 @@
-package app.humans.employees;
+package app.humans;
 
 public interface Human {
     public void getSpecificInfo();

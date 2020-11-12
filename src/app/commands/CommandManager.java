@@ -1,5 +1,8 @@
 package app.commands;
 
+import app.Ambulance;
+import app.global.Instances;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -13,11 +16,14 @@ public class CommandManager {
     public CommandManager(){
         Scanner scanner = new Scanner(System.in);
         doctorManager = new DoctorManager(scanner);
+        cashierManager = new CashierManager(scanner);
         patientManager= new PatientManager(scanner);
         generalEmployeeManager = new GeneralEmployeeManager(scanner);
+        Ambulance currentAmbulance = Instances.getCurrentAmbulance();
         int option=1;
         while(option!=0) {
             try {
+                System.out.println("Name of ambulance:"+ currentAmbulance.getName());
                 System.out.println("Choose type of actions");
                 System.out.println("1 - Doktor");
                 System.out.println("2 - Nurse");
@@ -29,6 +35,9 @@ public class CommandManager {
                 switch(option) {
                     case 1:
                         doctorManager.handleOptions();
+                        break;
+                    case 3:
+                        cashierManager.handleOptions();
                         break;
                     case 4:
                         patientManager.handleOptions();
@@ -43,10 +52,6 @@ public class CommandManager {
                 System.out.println("Invalid Number, Please try again");
             }
         }
-//getnut vsekych pacientov a tak
-
-
-
 
     }
 

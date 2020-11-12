@@ -1,5 +1,7 @@
 package app.humans.employees;
 
+import app.humans.Human;
+
 public class Employee implements Human {
     protected String name,surname;
     protected int ID;

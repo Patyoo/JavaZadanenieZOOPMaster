@@ -1,10 +1,11 @@
 package app.humans.employees;
 
 import app.Ambulance;
+import app.humans.Human;
 import app.humans.Patient;
 import app.products.Confirmation;
 
-public class Doctor extends Employee implements Human{
+public class Doctor extends Employee implements Human {
     private String expertise;
     private boolean hasPatient;
     private Confirmation confirmation;

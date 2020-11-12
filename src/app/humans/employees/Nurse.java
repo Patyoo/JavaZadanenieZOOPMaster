@@ -1,6 +1,8 @@
 package app.humans.employees;
 
-public class Nurse extends Employee implements Human{
+import app.humans.Human;
+
+public class Nurse extends Employee implements Human {
     boolean hasModifiedListOfPatients;
 
     public Nurse(String name,String surname,int ID){

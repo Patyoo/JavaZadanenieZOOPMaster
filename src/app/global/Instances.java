@@ -12,11 +12,11 @@ import java.util.ArrayList;
 
 public class Instances {
     private static Ambulance currentAmbulance;
-    private static ArrayList<Patient> globalPatients = new ArrayList<Patient>();
-    private static ArrayList<Doctor> globalDoctors =  new ArrayList<Doctor>();
-    private static ArrayList<Nurse> globalNurses =  new ArrayList<Nurse>();
-    private static ArrayList<Employee> globalEmployees = new ArrayList<Employee>();
-    private static ArrayList<Cashier> globalCashiers =  new ArrayList<Cashier>();
+    private static ArrayList<Patient> globalPatients = new ArrayList<>();
+    private static ArrayList<Doctor> globalDoctors =  new ArrayList<>();
+    private static ArrayList<Nurse> globalNurses =  new ArrayList<>();
+    private static ArrayList<Employee> globalEmployees = new ArrayList<>();
+    private static ArrayList<Cashier> globalCashiers =  new ArrayList<>();
     private static int[] globalNumOfDrugs;
     private static boolean wasInitialized=false;
 
@@ -83,6 +83,18 @@ public class Instances {
 
     public static ArrayList<Employee> getGlobalEmployees() {
         return globalEmployees;
+    }
+
+    public static ArrayList<Cashier> getGlobalCashiers() {
+        return globalCashiers;
+    }
+
+    public static ArrayList<Nurse> getGlobalNurses() {
+        return globalNurses;
+    }
+
+    public static Ambulance getCurrentAmbulance() {
+        return currentAmbulance;
     }
 
 }
