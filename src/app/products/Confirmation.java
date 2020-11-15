@@ -3,18 +3,18 @@ package app.products;
 import app.Ambulance;
 import app.humans.Patient;
 import app.humans.employees.Doctor;
-import app.humans.employees.Employee;
 
 public class Confirmation implements GeneralProduct{
     private Ambulance ambulance;
     private Patient patient;
+    private Doctor doctor;
 
-    public Confirmation(Ambulance ambulance, Patient patient){
+    public Confirmation(Ambulance ambulance, Patient patient,Doctor doctor){
         this.ambulance=ambulance;
         this.patient=patient;
+        this.doctor=doctor;
     }
 
- 
     public String getProductInfo() {
         return null;
     }

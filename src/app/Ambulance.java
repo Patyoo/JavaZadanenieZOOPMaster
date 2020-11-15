@@ -6,6 +6,7 @@ import app.humans.employees.Cashier;
 import app.humans.employees.Doctor;
 import app.humans.employees.Employee;
 import app.humans.employees.Nurse;
+import app.products.Drug;
 
 import java.util.ArrayList;
 
@@ -17,6 +18,7 @@ public class Ambulance {
     private Employee cashier;
     private Employee universalEmployee;
     private ArrayList<Patient> patients = new ArrayList<>();
+    private ArrayList<Drug> drugs = new ArrayList<>();
     private int[] numOfDrugs;
 
     public Ambulance(String name, String address){
@@ -105,6 +107,14 @@ public class Ambulance {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public ArrayList<Drug> getDrugs() {
+        return drugs;
+    }
+
+    public void addDrugs(Drug drug) {
+        drugs.add(drug);
     }
 
 }

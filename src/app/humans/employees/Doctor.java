@@ -1,14 +1,10 @@
 package app.humans.employees;
 
-import app.Ambulance;
 import app.humans.Human;
-import app.humans.Patient;
-import app.products.Confirmation;
 
 public class Doctor extends Employee implements Human {
     private String expertise;
     private boolean hasPatient;
-    private Confirmation confirmation;
 
     public Doctor(String name,String surname,int ID,String expertise){
         super(name,surname,ID);
@@ -22,7 +18,4 @@ public class Doctor extends Employee implements Human {
         System.out.println("(Doctor) Name: "+super.name+", surname: "+super.surname+", ID: "+super.ID + ", expertise: "+expertise);
     }
 
-    public void createConfirmation(Ambulance ambulance,Patient patient){
-        this.confirmation=new Confirmation(ambulance,patient);
-    }
 }
