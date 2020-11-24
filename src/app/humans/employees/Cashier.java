@@ -10,7 +10,10 @@ public class Cashier extends Employee implements Human {
     }
 
     public void getSpecificInfo(){
-        System.out.println("(Cashier) Name: "+super.name+", surname: "+super.surname+", ID: "+super.ID + ", modifiedDrugs:"+hasModifiedListOfDrugs);
+        System.out.println("(Cashier) Name: "+super.name+", surname: "+super.surname+", ID: "+super.ID + ", modifiedDrugs:"+hasModifiedListOfDrugs+"\n");
+    }
+    public void prepareAmbulance(){
+        System.out.println("Cashier has check the warehouse");
     }
 
 }

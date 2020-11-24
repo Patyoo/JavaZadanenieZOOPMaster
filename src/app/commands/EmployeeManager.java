@@ -2,18 +2,16 @@ package app.commands;
 
 import app.global.Instances;
 import app.humans.employees.Employee;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class GeneralEmployeeManager implements InputManager{
-
+public class EmployeeManager extends GeneralManager {
     private Scanner scanner;
-    public GeneralEmployeeManager(Scanner scanner){
-        this.scanner=scanner;
+    public EmployeeManager(){
+        this.scanner=super.getScanner();
     }
 
-    public void addGeneralEmployeeToInstances(){
+    public void addEmployeeToInstances(){
         scanner.nextLine();
         System.out.println("Name:");
         String name = scanner.nextLine();
@@ -21,23 +19,25 @@ public class GeneralEmployeeManager implements InputManager{
         String surname = scanner.nextLine();
         System.out.println("id: ");
         int id = scanner.nextInt();
-        Instances.addGlobalGeneralEmployee(new Employee(name,surname,id));
+        Instances.addGlobalDoctor( new Employee(name,surname,id));
     }
 
-    public void getInfoGeneralEmployee(){
+
+    public void getInfoEmployee(){
         scanner.nextLine();
-        System.out.println("Type name of searched patient");
+        System.out.println("Type name of searched employee");
         String nameOfSearchedEmployee = scanner.nextLine();
         boolean found=false;
         for(Employee employee : Instances.getGlobalEmployees()){
             if(employee.getName().equals(nameOfSearchedEmployee)){
                 found=true;
+                System.out.println("Employee by name "+nameOfSearchedEmployee+" was found! More info:");
                 employee.getSpecificInfo();
                 break;
             }
         }
         if(!found){
-            System.out.println("Patient by name "+nameOfSearchedEmployee+" was not found! More info:");
+            System.out.println("Doctor by name "+nameOfSearchedEmployee+" was not found! More info:");
         }
 
     }
@@ -45,16 +45,16 @@ public class GeneralEmployeeManager implements InputManager{
     public void handleOptions(){
         try {
             System.out.println("Available actions:");
-            System.out.println("1 - Add new General Employee");
-            System.out.println("2 - Get info about General Employee ");
+            System.out.println("1 - Add new Employee");
+            System.out.println("2 - Get info about employee ");
             int option = scanner.nextInt();
-
             switch(option) {
+                case 0: break;
                 case 1:
-                    addGeneralEmployeeToInstances();
+                    addEmployeeToInstances();
                     break;
                 case 2:
-                    getInfoGeneralEmployee();
+                    getInfoEmployee();
                     break;
             }
         }
@@ -64,3 +64,4 @@ public class GeneralEmployeeManager implements InputManager{
 
     }
 }
+

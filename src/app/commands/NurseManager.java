@@ -6,10 +6,10 @@ import app.humans.employees.Nurse;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class NurseManager {
+public class NurseManager extends GeneralManager{
     private Scanner scanner;
-    public NurseManager(java.util.Scanner scanner){
-        this.scanner=scanner;
+    public NurseManager(){
+        this.scanner=super.getScanner();;
     }
 
     public void addNurseToInstances(){
@@ -18,8 +18,6 @@ public class NurseManager {
         String name = scanner.nextLine();
         System.out.println("Surname: ");
         String surname = scanner.nextLine();
-        System.out.println("Age: ");
-        int age = scanner.nextInt();
         System.out.println("id: ");
         int id = scanner.nextInt();
         Instances.addGlobalNurse( new Nurse(name,surname,id));
@@ -52,6 +50,7 @@ public class NurseManager {
             System.out.println("2 - Get info about Nurse ");
             int option = scanner.nextInt();
             switch(option) {
+                case 0: break;
                 case 1:
                     addNurseToInstances();
                     break;

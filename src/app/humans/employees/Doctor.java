@@ -15,7 +15,10 @@ public class Doctor extends Employee implements Human {
     }
 
     public void getSpecificInfo(){
-        System.out.println("(Doctor) Name: "+super.name+", surname: "+super.surname+", ID: "+super.ID + ", expertise: "+expertise);
+        System.out.println("(Doctor) Name: "+super.name+", surname: "+super.surname+", ID: "+super.ID + ", expertise: "+expertise+'\n');
+    }
+    public void prepareAmbulance(){
+        System.out.println("Doctor has cleared the schedule");
     }
 
 }

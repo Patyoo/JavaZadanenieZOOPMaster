@@ -13,10 +13,7 @@ import java.util.ArrayList;
 public class Ambulance {
     private String name;
     private String address;
-    private Employee doctor;
-    private Employee nurse;
-    private Employee cashier;
-    private Employee universalEmployee;
+    private ArrayList<Employee> employees = new ArrayList<>();
     private ArrayList<Patient> patients = new ArrayList<>();
     private ArrayList<Drug> drugs = new ArrayList<>();
     private int[] numOfDrugs;
@@ -26,34 +23,52 @@ public class Ambulance {
         this.address=address;
     }
 
-    public Employee getDoctor() {
-        if(doctor instanceof Doctor) return (Doctor) doctor;
-        return doctor;
+    public void startAmbulance(){
+        for(Employee employee : employees){
+            employee.prepareAmbulance();
+        }
     }
 
-    public void setDoctor(Employee doctor) {
-        this.doctor = doctor;
+    public Employee getDoctor() {
+        for(Employee employee: employees){
+            if(employee instanceof Doctor) return employee;
+        }
+        return null;
+    }
+
+    public void addDoctor(Doctor doctor) {
+        employees.add(doctor);
         Instances.addGlobalDoctor(doctor);
     }
 
     public Employee getNurse() {
-        if(nurse instanceof Nurse) return (Nurse) nurse;
-        return nurse;
+        for(Employee employee: employees){
+            if(employee instanceof Nurse) return employee;
+        }
+        return null;
     }
 
-    public void setNurse(Employee nurse) {
-        this.nurse = nurse;
+    public void addNurse(Nurse nurse) {
+        employees.add(nurse);
         Instances.addGlobalNurse(nurse);
     }
 
     public Employee getCashier() {
-        if(cashier instanceof Cashier) return (Cashier) cashier;
-        return cashier;
+        for(Employee employee: employees){
+            if(employee instanceof Cashier) return employee;
+        }
+        return null;
     }
 
-    public void setCashier(Employee cashier) {
-        this.cashier = cashier;
+    public void addCashier(Cashier cashier) {
+        employees.add(cashier);
         Instances.addGlobalCashier(cashier);
+    }
+
+    public void addEmployee(Employee employee){
+        employees.add(employee);
+        Instances.addGlobalEmployee(employee);
+
     }
 
     public ArrayList<Patient> getPatients() {
@@ -83,14 +98,6 @@ public class Ambulance {
 
     public void setNumOfDrugs(int[] numOfDrugs) {
         this.numOfDrugs = numOfDrugs;
-    }
-
-    public Employee getUniversalEmployee() {
-        return universalEmployee;
-    }
-
-    public void setUniversalEmployee(Employee universalEmployee) {
-        this.universalEmployee = universalEmployee;
     }
 
     public String getName() {

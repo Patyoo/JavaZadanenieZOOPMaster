@@ -6,11 +6,11 @@ import app.humans.employees.Cashier;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class CashierManager {
+public class CashierManager extends GeneralManager{
 
     private Scanner scanner;
-    public CashierManager(Scanner scanner){
-        this.scanner=scanner;
+    public CashierManager(){
+        this.scanner=super.getScanner();
     }
 
     public void addCashierToInstances(){
@@ -19,11 +19,9 @@ public class CashierManager {
         String name = scanner.nextLine();
         System.out.println("Surname: ");
         String surname = scanner.nextLine();
-        System.out.println("Age: ");
-        int age = scanner.nextInt();
         System.out.println("id: ");
         int id = scanner.nextInt();
-        Instances.addGlobalCashier( new Cashier(name,surname,id));
+        Instances.addGlobalCashier(new Cashier(name,surname,id));
     }
 
 
@@ -53,6 +51,7 @@ public class CashierManager {
             System.out.println("2 - Get info about Cashier ");
             int option = scanner.nextInt();
             switch(option) {
+                case 0: break;
                 case 1:
                     addCashierToInstances();
                     break;

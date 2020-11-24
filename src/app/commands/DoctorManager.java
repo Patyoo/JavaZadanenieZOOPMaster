@@ -6,11 +6,11 @@ import app.humans.employees.Doctor;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class DoctorManager implements InputManager{
+public class DoctorManager extends GeneralManager{
 
     private Scanner scanner;
-    public DoctorManager(Scanner scanner){
-        this.scanner=scanner;
+    public DoctorManager(){
+        this.scanner=super.getScanner();
     }
 
     public void addDoctorToInstances(){
@@ -19,8 +19,6 @@ public class DoctorManager implements InputManager{
         String name = scanner.nextLine();
         System.out.println("Surname: ");
         String surname = scanner.nextLine();
-        System.out.println("Age: ");
-        int age = scanner.nextInt();
         System.out.println("id: ");
         int id = scanner.nextInt();
         System.out.println("Expertise: ");
@@ -55,6 +53,7 @@ public class DoctorManager implements InputManager{
             System.out.println("2 - Get info about doctor ");
             int option = scanner.nextInt();
             switch(option) {
+                case 0: break;
                 case 1:
                     addDoctorToInstances();
                     break;

@@ -2,7 +2,7 @@ package app.humans.employees;
 
 import app.humans.Human;
 
-public class Employee implements Human {
+public  class Employee implements Human {
     protected String name,surname;
     protected int ID;
 
@@ -12,8 +12,12 @@ public class Employee implements Human {
         this.ID=ID;
     }
 
+    public void prepareAmbulance(){
+        System.out.println("Employee started working");
+    }
+
     public void getSpecificInfo(){
-        System.out.println("(GeneralEmployee) Name: "+name+", surname: "+surname+", ID: "+ID);
+        System.out.println("(GeneralEmployee) Name: "+name+", surname: "+surname+", ID: "+ID+'\n');
     }
     public String getName(){
         return  name;

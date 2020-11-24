@@ -15,7 +15,7 @@ public class Seeder {
     private Doctor doctorDefault = new Doctor("Doktor","Doktor",100,"None");
     private Nurse nurseDefault = new Nurse("Nurse","Nurse",200);
     private Cashier cashierDefault = new Cashier("Cashier","Cash",300);
-    private Employee employeeDefault = new Employee("NameEmp","SS",123);
+    private Employee employeeDefault = new Employee("Employee","Hardy",00);
     private int numOfDrugsDefault[] = {10,10,10};
 
     public static Seeder getSeederDefault(){
@@ -24,12 +24,12 @@ public class Seeder {
     }
 
     public Ambulance getDefaultAmbulance() {
-        ambulanceDefault.setDoctor(doctorDefault);
-        ambulanceDefault.setNurse(nurseDefault);
-        ambulanceDefault.setCashier(cashierDefault);
+        ambulanceDefault.addDoctor(doctorDefault);
+        ambulanceDefault.addNurse(nurseDefault);
+        ambulanceDefault.addCashier(cashierDefault);
         ambulanceDefault.addPatient(patientDefault);
         ambulanceDefault.setNumOfDrugs(numOfDrugsDefault);
-        ambulanceDefault.setUniversalEmployee(employeeDefault);
+        ambulanceDefault.addEmployee(employeeDefault);
         return ambulanceDefault;
     }
 

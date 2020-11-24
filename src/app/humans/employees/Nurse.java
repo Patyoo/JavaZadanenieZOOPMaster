@@ -10,6 +10,9 @@ public class Nurse extends Employee implements Human {
     }
 
     public void getSpecificInfo(){
-        System.out.println("(GeneralEmployee) Name: "+super.name+", surname: "+super.surname+", ID: "+super.ID+ ", hasModifiedPatients: "+hasModifiedListOfPatients);
+        System.out.println("(GeneralEmployee) Name: "+super.name+", surname: "+super.surname+", ID: "+super.ID+ ", hasModifiedPatients: "+hasModifiedListOfPatients+'\n');
+    }
+    public void prepareAmbulance(){
+        System.out.println("Doctor has opened the ambulance");
     }
 }

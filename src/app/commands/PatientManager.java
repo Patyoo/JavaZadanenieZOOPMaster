@@ -6,11 +6,11 @@ import app.humans.Patient;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class PatientManager implements InputManager {
+public class PatientManager extends GeneralManager {
 
     private Scanner scanner;
-    public PatientManager(Scanner scanner){
-        this.scanner=scanner;
+    public PatientManager(){
+        this.scanner=super.getScanner();;
     }
 
     public void addPatientToInstances(){
@@ -41,7 +41,6 @@ public class PatientManager implements InputManager {
         if(!found){
             System.out.println("Patient by name "+nameOfSearchedPatient+" was not found! More info:");
         }
-
     }
 
     public void handleOptions(){
@@ -52,6 +51,7 @@ public class PatientManager implements InputManager {
                 int option = scanner.nextInt();
 
                 switch(option) {
+                    case 0: break;
                     case 1:
                         addPatientToInstances();
                         break;
