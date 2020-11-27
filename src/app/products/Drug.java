@@ -1,22 +1,17 @@
 package app.products;
 
 public class Drug implements GeneralProduct{
-    private String type,expirationDate;
-    private double weight;
     private int index;
 
-    public Drug(int index,String type,double weight, String expirationDate){
+    public Drug(int index){
         this.index=index;
-        this.type=type;
-        this.weight=weight;
-        this.expirationDate=expirationDate;
     }
 
     public String getProductInfo() {
-        return null;
+        return DrugEnums.values()[index].toString();
     }
 
-    public String getName(){
-        return DrugNames.values()[index].toString();
+    public int getIndex(){
+        return index;
     }
     }

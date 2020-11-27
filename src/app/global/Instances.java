@@ -72,6 +72,10 @@ public class Instances {
         globalNumOfDrugs[index] += value;
     }
 
+    public static void removeGlobalNumOfDrug(int index,int value) {
+        globalNumOfDrugs[index] -= value;
+    }
+
     public static Cashier getGlobalCashier(int index) {
         return globalCashiers.get(index);
     }

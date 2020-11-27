@@ -1,5 +1,6 @@
 package app.commands;
 
+import app.Ambulance;
 import app.global.Instances;
 import app.humans.Patient;
 
@@ -7,10 +8,12 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class PatientManager extends GeneralManager {
-
+    private Ambulance currentAmbulance;
     private Scanner scanner;
-    public PatientManager(){
+
+    public PatientManager(Ambulance currentAmbulance) {
         this.scanner=super.getScanner();;
+        this.currentAmbulance=currentAmbulance;
     }
 
     public void addPatientToInstances(){
@@ -48,6 +51,7 @@ public class PatientManager extends GeneralManager {
                 System.out.println("Available actions:");
                 System.out.println("1 - Add new Patient");
                 System.out.println("2 - Get info about patient ");
+                System.out.println("3 - Get inspection");
                 int option = scanner.nextInt();
 
                 switch(option) {
@@ -58,6 +62,29 @@ public class PatientManager extends GeneralManager {
                     case 2:
                         getInfoPatient();
                         break;
+                    case 3:
+                        System.out.println("Type patient's name");
+                        scanner.nextLine();
+                        String patientName= scanner.nextLine();
+                        Patient patient = currentAmbulance.getPatient(patientName);
+                        if(patient==null){
+                            System.out.println("No patient was found in ambulance");
+                        }
+                        else{
+                            patient.getInspection(currentAmbulance.getDoctor());
+                            if(patient.isIll()){
+                                System.out.println("Patient is ill");
+                                currentAmbulance.getCashier().giveDrugs(patient.getCurrentDrug().getIndex());
+                                System.out.println("Cashier "+currentAmbulance.getCashier().getName()+" gave "+patient.getCurrentDrug().getProductInfo());
+                                System.out.println("Patient picked up the drug and went home ");
+                            }
+                            else{
+                                System.out.println("Patient is healthy and is leaving the ambulance");
+                            }
+                            currentAmbulance.removePatient(patient);
+                        }
+
+
                 }
             }
             catch(InputMismatchException | NumberFormatException ex ) {

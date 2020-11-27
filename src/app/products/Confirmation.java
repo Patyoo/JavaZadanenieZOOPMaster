@@ -16,7 +16,7 @@ public class Confirmation implements GeneralProduct{
     }
 
     public String getProductInfo() {
-        return null;
+        return "Confirmation of ambulance: "+ambulance.getName() +", Patient: "+patient.getName()+", Doctor: "+doctor.getName()+"\n";
     }
 
 }

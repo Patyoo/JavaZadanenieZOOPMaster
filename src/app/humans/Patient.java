@@ -1,15 +1,21 @@
 package app.humans;
 
+import app.humans.employees.Cashier;
+import app.humans.employees.Doctor;
 import app.products.Confirmation;
 import app.products.Drug;
+import app.products.DrugEnums;
 
 import java.util.ArrayList;
 
 public class Patient  implements Human {
     private String name,surname;
     private int age,ID;
-    private boolean isIll,hasReceipt,hasConfirmation;
-    private ArrayList<Drug> currentDrugs = new ArrayList<>();
+    private boolean isIll;
+    private boolean hasReceipt;
+    private boolean hasConfirmation;
+    private boolean hasDrug;
+    private Drug currentDrug;
     private Confirmation confirmation;
 
     public Patient(String name,String surname,int age,int ID){
@@ -19,12 +25,24 @@ public class Patient  implements Human {
         this.ID=ID;
     }
 
-    public void addConfirmation(Confirmation confirmation){
-        this.confirmation=confirmation;
-    }
-
     public void getSpecificInfo(){
         System.out.println("(Patient) Name: "+name+", Surname: "+surname+", ID: "+ID+" , age: "+age);
+    }
+
+    public void getInspection(Doctor currentDoctor){
+        this.confirmation = currentDoctor.makeInspection(this);
+    }
+
+    public void getPatientDrugs(Cashier currentCashier){
+        if(hasReceipt){
+            currentCashier.giveDrugs(currentDrug.getIndex());
+            System.out.println("Patient "+name + " got his Drugs:");
+            DrugEnums.getInfo(currentDrug.getIndex());
+
+
+        }
+        else System.out.println("Patient "+name + " does not have a receipt!");
+
     }
 
     public String getName() {
@@ -53,6 +71,35 @@ public class Patient  implements Human {
 
     public boolean isHasConfirmation() {
         return hasConfirmation;
+    }
+
+    public void setIll(boolean ill) {
+        isIll = ill;
+    }
+
+    public void setHasReceipt(boolean hasReceipt) {
+        this.hasReceipt = hasReceipt;
+    }
+
+    public void setHasConfirmation(boolean hasConfirmation) {
+        this.hasConfirmation = hasConfirmation;
+    }
+
+    public void setCurrentDrug(Drug drug) {
+        this.currentDrug = drug;
+    }
+
+    public Drug getCurrentDrug() {
+        return currentDrug;
+
+    }
+
+    public boolean hasDrug() {
+        return hasDrug;
+    }
+
+    public void setHasDrug(boolean hasDrug) {
+        this.hasDrug = hasDrug;
     }
 
 }

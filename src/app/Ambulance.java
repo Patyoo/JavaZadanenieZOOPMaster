@@ -29,21 +29,22 @@ public class Ambulance {
         }
     }
 
-    public Employee getDoctor() {
+    public Doctor getDoctor() {
         for(Employee employee: employees){
-            if(employee instanceof Doctor) return employee;
+            if(employee instanceof Doctor) return (Doctor) employee;
         }
         return null;
     }
 
     public void addDoctor(Doctor doctor) {
         employees.add(doctor);
+        doctor.setAmbulance(this);
         Instances.addGlobalDoctor(doctor);
     }
 
-    public Employee getNurse() {
+    public Nurse getNurse() {
         for(Employee employee: employees){
-            if(employee instanceof Nurse) return employee;
+            if(employee instanceof Nurse) return (Nurse) employee;
         }
         return null;
     }
@@ -53,15 +54,16 @@ public class Ambulance {
         Instances.addGlobalNurse(nurse);
     }
 
-    public Employee getCashier() {
+    public Cashier getCashier() {
         for(Employee employee: employees){
-            if(employee instanceof Cashier) return employee;
+            if(employee instanceof Cashier) return (Cashier) employee;
         }
         return null;
     }
 
     public void addCashier(Cashier cashier) {
         employees.add(cashier);
+        cashier.setAmbulance(this);
         Instances.addGlobalCashier(cashier);
     }
 
@@ -75,6 +77,15 @@ public class Ambulance {
         return patients;
     }
 
+    public Patient getPatient(String name){
+        for(Patient patient: patients){
+            if(patient.getName().equals(name)){
+                return patient;
+            }
+        }
+        return null;
+    }
+
     public void setPatients(ArrayList<Patient> patients) {
         this.patients = patients;
     }
@@ -82,6 +93,10 @@ public class Ambulance {
     public void addPatient(Patient patient) {
         this.patients.add(patient);
         Instances.addGlobalPatient(patient);
+    }
+
+    public void removePatient(Patient removePatient){
+     patients.remove(removePatient);
     }
 
     public int getNumOfDrugs(int index) {
@@ -94,6 +109,10 @@ public class Ambulance {
 
     public void setNumOfDrugs(int index, int value) {
         this.numOfDrugs[index]=value;
+    }
+
+    public void removeNumOfDrugs(int index, int value) {
+        numOfDrugs[index] -= value;
     }
 
     public void setNumOfDrugs(int[] numOfDrugs) {

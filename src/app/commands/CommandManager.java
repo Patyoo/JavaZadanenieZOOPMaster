@@ -6,23 +6,25 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CommandManager extends GeneralManager {
-    private DoctorManager doctorManager;
-    private NurseManager nurseManager;
-    private  CashierManager cashierManager; //(final)
-    private PatientManager patientManager;
-    private EmployeeManager employeeManager;
+    private final DoctorManager doctorManager;
+    private final NurseManager nurseManager;
+    private final CashierManager cashierManager;
+    private final PatientManager patientManager;
+    private final EmployeeManager employeeManager;
     private Scanner scanner;
     private Ambulance currentAmbulance;
 
     public CommandManager() {
+        currentAmbulance = Instances.getCurrentAmbulance();
+        currentAmbulance.startAmbulance();
         scanner = super.getScanner();
+
         doctorManager = new DoctorManager();
         cashierManager = new CashierManager();
-        patientManager = new PatientManager();
+        patientManager = new PatientManager(currentAmbulance);
         nurseManager = new NurseManager();
         employeeManager = new EmployeeManager();
-        currentAmbulance = Instances.getCurrentAmbulance();
-        currentAmbulance.startAmbulance(); /////!!
+
         handleOptions();
     }
 
@@ -64,6 +66,10 @@ public class CommandManager extends GeneralManager {
                 System.out.println("Invalid Number, Please try again");
             }
         }
+    }
 
+    public void setCurrentAmbulance(Ambulance newAmbulance) {
+        this.currentAmbulance=newAmbulance;
+        //zmenit aj vo zvysnych manageroch cez ich setter
     }
 }
