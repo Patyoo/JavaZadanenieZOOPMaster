@@ -36,10 +36,10 @@ public class Ambulance {
         return null;
     }
 
-    public void addDoctor(Doctor doctor) {
+    public void addDoctor(Employee doctor) {
         employees.add(doctor);
         doctor.setAmbulance(this);
-        Instances.addGlobalDoctor(doctor);
+        if(doctor instanceof Doctor) Instances.addGlobalDoctor(doctor);
     }
 
     public Nurse getNurse() {
@@ -49,10 +49,10 @@ public class Ambulance {
         return null;
     }
 
-    public void addNurse(Nurse nurse) {
+    public void addNurse(Employee nurse) {
         employees.add(nurse);
         nurse.setAmbulance(this);
-        Instances.addGlobalNurse(nurse);
+        if(nurse instanceof Nurse) Instances.addGlobalNurse(nurse);
     }
 
     public Cashier getCashier() {
@@ -62,10 +62,10 @@ public class Ambulance {
         return null;
     }
 
-    public void addCashier(Cashier cashier) {
+    public void addCashier(Employee cashier) {
         employees.add(cashier);
         cashier.setAmbulance(this);
-        Instances.addGlobalCashier(cashier);
+        if(cashier instanceof Cashier)Instances.addGlobalCashier(cashier);
     }
 
     public void addEmployee(Employee employee){

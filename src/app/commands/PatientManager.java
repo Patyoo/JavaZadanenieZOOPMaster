@@ -12,11 +12,11 @@ public class PatientManager extends GeneralManager {
     private Scanner scanner;
 
     public PatientManager(Ambulance currentAmbulance) {
-        this.scanner=super.getScanner();;
+        this.scanner=super.getScanner();
         this.currentAmbulance=currentAmbulance;
     }
 
-    public void addPatientToInstances(){
+    private void addPatientToInstances(){
         scanner.nextLine();
         System.out.println("Name:");
         String name = scanner.nextLine();
@@ -29,7 +29,7 @@ public class PatientManager extends GeneralManager {
         Instances.addGlobalPatient( new Patient(name,surname,age,id));
     }
 
-    public void getInfoPatient(){
+    private void getInfoPatient(){
         scanner.nextLine();
         System.out.println("Type name of searched patient");
         String nameOfSearchedPatient = scanner.nextLine();
@@ -76,10 +76,10 @@ public class PatientManager extends GeneralManager {
                                 System.out.println("Patient is ill");
                                 patient.getDrugs(currentAmbulance.getCashier());
                                 System.out.println("Cashier "+currentAmbulance.getCashier().getName()+" gave "+patient.getCurrentDrug().getProductInfo());
-                                System.out.println("Patient picked up the drug and went home ");
+                                System.out.println("Patient picked up the drug and went home\n ");
                             }
                             else{
-                                System.out.println("Patient is healthy and is leaving the ambulance");
+                                System.out.println("Patient is healthy and is leaving the ambulance\n");
                             }
                             currentAmbulance.removePatient(patient);
                         }

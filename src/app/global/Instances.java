@@ -22,18 +22,14 @@ public class Instances {
 
 
     public Instances(Seeder defaultSeeder){
-        if(wasInitialized == false){
+        if(!wasInitialized){
             currentAmbulance=defaultSeeder.getDefaultAmbulance();
             globalPatients=currentAmbulance.getPatients();
-            if(currentAmbulance.getDoctor() instanceof Doctor) globalDoctors.add((Doctor) currentAmbulance.getDoctor());
-            if(currentAmbulance.getNurse() instanceof Nurse) globalNurses.add((Nurse) currentAmbulance.getNurse());
-            if(currentAmbulance.getCashier() instanceof Cashier) globalCashiers.add((Cashier) currentAmbulance.getCashier());
+            if(currentAmbulance.getDoctor() != null) globalDoctors.add(currentAmbulance.getDoctor());
+            if(currentAmbulance.getNurse() != null) globalNurses.add(currentAmbulance.getNurse());
+            if(currentAmbulance.getCashier() != null) globalCashiers.add(currentAmbulance.getCashier());
             globalNumOfDrugs=currentAmbulance.getNumOfDrugs();
         }
-    }
-
-    public Ambulance getAmbulanceInstance(){
-        return  currentAmbulance;
     }
 
     public static void addGlobalDoctor(Employee currentDoctor) {
