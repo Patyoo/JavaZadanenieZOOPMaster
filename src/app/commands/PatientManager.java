@@ -74,7 +74,7 @@ public class PatientManager extends GeneralManager {
                             patient.getInspection(currentAmbulance.getDoctor());
                             if(patient.isIll()){
                                 System.out.println("Patient is ill");
-                                currentAmbulance.getCashier().giveDrugs(patient.getCurrentDrug().getIndex());
+                                patient.getDrugs(currentAmbulance.getCashier());
                                 System.out.println("Cashier "+currentAmbulance.getCashier().getName()+" gave "+patient.getCurrentDrug().getProductInfo());
                                 System.out.println("Patient picked up the drug and went home ");
                             }

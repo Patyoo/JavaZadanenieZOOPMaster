@@ -6,8 +6,6 @@ import app.products.Confirmation;
 import app.products.Drug;
 import app.products.DrugEnums;
 
-import java.util.ArrayList;
-
 public class Patient  implements Human {
     private String name,surname;
     private int age,ID;
@@ -33,13 +31,11 @@ public class Patient  implements Human {
         this.confirmation = currentDoctor.makeInspection(this);
     }
 
-    public void getPatientDrugs(Cashier currentCashier){
+    public void getDrugs(Cashier currentCashier){
         if(hasReceipt){
             currentCashier.giveDrugs(currentDrug.getIndex());
             System.out.println("Patient "+name + " got his Drugs:");
             DrugEnums.getInfo(currentDrug.getIndex());
-
-
         }
         else System.out.println("Patient "+name + " does not have a receipt!");
 

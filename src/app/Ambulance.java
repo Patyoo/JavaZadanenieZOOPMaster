@@ -51,6 +51,7 @@ public class Ambulance {
 
     public void addNurse(Nurse nurse) {
         employees.add(nurse);
+        nurse.setAmbulance(this);
         Instances.addGlobalNurse(nurse);
     }
 
@@ -69,12 +70,17 @@ public class Ambulance {
 
     public void addEmployee(Employee employee){
         employees.add(employee);
+        employee.setAmbulance(this);
         Instances.addGlobalEmployee(employee);
 
     }
 
     public ArrayList<Patient> getPatients() {
         return patients;
+    }
+
+    public int getNumOfPatients() {
+        return patients.size();
     }
 
     public Patient getPatient(String name){

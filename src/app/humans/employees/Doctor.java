@@ -7,11 +7,13 @@ import app.products.Confirmation;
 import app.products.Drug;
 import app.products.DrugEnums;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Doctor extends Employee implements Human {
     private String expertise;
     private Ambulance currentAmbulance;
+    private ArrayList<Employee> helperEmployees = new ArrayList<>();
 
     public Doctor(String name,String surname,int ID,String expertise){
         super(name,surname,ID);
@@ -24,8 +26,14 @@ public class Doctor extends Employee implements Human {
     public void getSpecificInfo(){
         System.out.println("(Doctor) Name: "+super.name+", surname: "+super.surname+", ID: "+super.ID + ", expertise: "+expertise+'\n');
     }
+
     public void prepareAmbulance(){
-        System.out.println("Doctor has cleared the schedule");
+        System.out.println("\nDoctor has cleared the schedule");
+        int numOfPatients=currentAmbulance.getNurse().getNumOfScheduledPatients();
+        if(numOfPatients>1){
+            System.out.println("Doctor is expecting a busy day because of the number of patients.("+numOfPatients+")\n");
+        }
+        else System.out.println("Doctor is not in a hurry because of the number of patients.("+numOfPatients+")\n");
     }
 
     public void setAmbulance(Ambulance ambulance){
@@ -34,8 +42,7 @@ public class Doctor extends Employee implements Human {
 
     public Confirmation makeInspection(Patient patient){
         Random random = new Random();
-        //boolean isIll =  random.nextBoolean();
-        boolean isIll = true;
+        boolean isIll =  random.nextBoolean();
         patient.setIll(isIll);
         if(isIll){
             patient.setHasReceipt(true);
@@ -46,5 +53,12 @@ public class Doctor extends Employee implements Human {
 
     }
 
+    public ArrayList<Employee> getHelperEmployees() {
+        return helperEmployees;
+    }
+
+    public void addHelperEmployees(Employee helperEmployees) {
+        this.helperEmployees.add(helperEmployees);
+    }
 
 }

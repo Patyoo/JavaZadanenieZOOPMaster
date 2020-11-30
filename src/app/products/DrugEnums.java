@@ -17,5 +17,9 @@ public enum DrugEnums {
         DrugEnums drugs[] = DrugEnums.values();
         System.out.println("Name : "+drugs[index]+",  Weight:  "+drugs[index].weight + ",Type: "+drugs[index].type+"\n");
     }
+
+    public static String getName(int index){
+        return DrugEnums.values()[index].toString();
+    }
 }
 

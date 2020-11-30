@@ -1,10 +1,12 @@
 package app.humans.employees;
 
+import app.Ambulance;
 import app.humans.Human;
 
-public  class Employee implements Human {
+public class Employee implements Human {
     protected String name,surname;
     protected int ID;
+    private Ambulance currentAmbulance;
 
     public Employee(String name,String surname,int ID){
         this.name=name;
@@ -14,6 +16,7 @@ public  class Employee implements Human {
 
     public void prepareAmbulance(){
         System.out.println("Employee started working");
+        currentAmbulance.getDoctor().addHelperEmployees(this);
     }
 
     public void getSpecificInfo(){
@@ -21,6 +24,10 @@ public  class Employee implements Human {
     }
     public String getName(){
         return  name;
+    }
+
+    public void setAmbulance(Ambulance ambulance){
+        this.currentAmbulance=ambulance;
     }
 
 }

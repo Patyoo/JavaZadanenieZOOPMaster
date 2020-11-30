@@ -3,6 +3,7 @@ package app.humans.employees;
 import app.Ambulance;
 import app.global.Instances;
 import app.humans.Human;
+import app.products.DrugEnums;
 
 public class Cashier extends Employee implements Human {
     boolean hasModifiedListOfDrugs;
@@ -16,13 +17,27 @@ public class Cashier extends Employee implements Human {
         System.out.println("(Cashier) Name: "+super.name+", surname: "+super.surname+", ID: "+super.ID + ", modifiedDrugs:"+hasModifiedListOfDrugs+"\n");
     }
     public void prepareAmbulance(){
-        System.out.println("Cashier has check the warehouse");
+        System.out.println("Cashier has checked the warehouse\n");
+        controlAmounts();
     }
 
     public void giveDrugs(int indexOfDrug){
-        //pozriet ci sme nesli na - hodnoty
         Instances.removeGlobalNumOfDrug(indexOfDrug,1);
         currentAmbulance.removeNumOfDrugs(indexOfDrug,1);
+    }
+
+    public void controlAmounts(){
+        int index=0;
+        boolean flag=false;
+        for(int drugAmount : currentAmbulance.getNumOfDrugs()){
+            if(drugAmount==0){
+                System.out.println("Ambulance has run out of:"+ DrugEnums.getName(index));
+                flag=true;
+                break;
+            }
+            index++;
+        }
+        if(!flag) System.out.println("Ambulance has every drug in warehouse");
     }
 
     public void setAmbulance(Ambulance ambulance){
