@@ -1,7 +1,6 @@
 package app.humans.employees;
 
 import app.Ambulance;
-import app.humans.Human;
 import app.humans.Patient;
 import app.products.Confirmation;
 import app.products.Drug;
@@ -10,7 +9,7 @@ import app.products.DrugEnums;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Doctor extends Employee implements Human {
+public class Doctor extends Employee implements Worker {
     private String expertise;
     private Ambulance currentAmbulance;
     private ArrayList<Employee> helperEmployees = new ArrayList<>();
@@ -28,7 +27,7 @@ public class Doctor extends Employee implements Human {
     }
 
     public void prepareAmbulance(){
-        System.out.println("\nDoctor has cleared the schedule");
+        System.out.println("\nDoctor "+super.name+" has cleared the schedule");
         int numOfPatients=currentAmbulance.getNurse().getNumOfScheduledPatients();
         if(numOfPatients>1){
             System.out.println("Doctor is expecting a busy day because of the number of patients.("+numOfPatients+")\n");
@@ -48,7 +47,6 @@ public class Doctor extends Employee implements Human {
             patient.setHasReceipt(true);
             patient.setCurrentDrug(new Drug((int) (Math.random()* DrugEnums.values().length)));
         }
-        patient.setHasConfirmation(true);
         return new Confirmation(currentAmbulance,patient,this);
 
     }

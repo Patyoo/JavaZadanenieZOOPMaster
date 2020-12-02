@@ -23,7 +23,7 @@ public class Ambulance {
         this.address=address;
     }
 
-    public void startAmbulance(){
+    public final void startAmbulance(){
         for(Employee employee : employees){
             employee.prepareAmbulance();
         }
@@ -119,6 +119,10 @@ public class Ambulance {
 
     public void removeNumOfDrugs(int index, int value) {
         numOfDrugs[index] -= value;
+    }
+
+    public void removeNumOfDrugs(int index) {
+        numOfDrugs[index] = 0;
     }
 
     public void setNumOfDrugs(int[] numOfDrugs) {

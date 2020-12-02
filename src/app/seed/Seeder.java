@@ -10,13 +10,13 @@ import app.humans.employees.Nurse;
 public class Seeder {
 
     private static Seeder instanceOfDefaultSeeder;
-    private Ambulance ambulanceDefault = new Ambulance("Ambulancia","Tuto");
-    private Patient patientDefault = new Patient("Pacient","P",15,0);
-    private Employee doctorDefault = new Doctor("Doktor","Doktor",100,"None");
-    private Employee nurseDefault = new Nurse("Nurse","Nurse",200);
-    private Employee cashierDefault = new Cashier("Cashier","Cash",300);
-    private Employee employeeDefault = new Employee("Employee","Hardy",00);
-    private int numOfDrugsDefault[] = {10,10,10};
+    private static Ambulance ambulanceDefault = new Ambulance("WowAmbulancia","Tuto");
+    private static Patient patientDefault = new Patient("TomiPac","P",15,0);
+    private static Employee doctorDefault = new Doctor("LaciDok","Doktor",100,"None");
+    private static Employee nurseDefault = new Nurse("LauraNur","Nurse",200);
+    private static Employee cashierDefault = new Cashier("PetoCas","Cash",300);
+    private static Employee employeeDefault = new Employee("AdamEmp","Hardy",00);
+    private static int numOfDrugsDefault[] = {10,10,10};
 
     public static Seeder getSeederDefault(){
         if(instanceOfDefaultSeeder == null ) instanceOfDefaultSeeder = new Seeder();

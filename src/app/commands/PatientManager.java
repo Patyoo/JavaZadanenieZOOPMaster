@@ -3,6 +3,7 @@ package app.commands;
 import app.Ambulance;
 import app.global.Instances;
 import app.humans.Patient;
+import app.products.Confirmation;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -74,6 +75,7 @@ public class PatientManager extends GeneralManager {
                             patient.getInspection(currentAmbulance.getDoctor());
                             if(patient.isIll()){
                                 System.out.println("Patient is ill");
+                                patient.setConfirmation(new Confirmation(currentAmbulance,patient,currentAmbulance.getDoctor()));
                                 patient.getDrugs(currentAmbulance.getCashier());
                                 System.out.println("Cashier "+currentAmbulance.getCashier().getName()+" gave "+patient.getCurrentDrug().getProductInfo());
                                 System.out.println("Patient picked up the drug and went home\n ");

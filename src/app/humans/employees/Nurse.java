@@ -1,11 +1,9 @@
 package app.humans.employees;
 
 import app.Ambulance;
-import app.humans.Human;
 import app.humans.Patient;
 
-
-public class Nurse extends Employee implements Human {
+public class Nurse extends Employee implements Worker {
     private boolean hasModifiedListOfPatients;
     private Ambulance currentAmbulance;
 
@@ -17,7 +15,7 @@ public class Nurse extends Employee implements Human {
         System.out.println("(GeneralEmployee) Name: "+super.name+", surname: "+super.surname+", ID: "+super.ID+ ", hasModifiedPatients: "+hasModifiedListOfPatients+'\n');
     }
     public void prepareAmbulance(){
-        System.out.println("Nurse has opened the ambulance and greeted:");
+        System.out.println("Nurse "+ super.name +" has opened the ambulance and greeted:");
         for(Patient patient:currentAmbulance.getPatients()){
             System.out.println(patient.getName());
         }

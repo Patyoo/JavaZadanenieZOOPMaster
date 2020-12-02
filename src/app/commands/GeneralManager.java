@@ -11,5 +11,5 @@ public abstract class GeneralManager {
     public Scanner getScanner(){
         return scanner;
     }
-    public abstract void  handleOptions();
+    public abstract void handleOptions();
 }

@@ -64,12 +64,11 @@ public class CommandManager extends GeneralManager {
                 }
             } catch (InputMismatchException | NumberFormatException ex) {
                 System.out.println("Invalid Number, Please try again");
+            } catch (Throwable throwable) {
+                throwable.printStackTrace();
             }
         }
+
     }
 
-    public void setCurrentAmbulance(Ambulance newAmbulance) {
-        this.currentAmbulance=newAmbulance;
-        //zmenit aj vo zvysnych manageroch cez ich setter
-    }
 }

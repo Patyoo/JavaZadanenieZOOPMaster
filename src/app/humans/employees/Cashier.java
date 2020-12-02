@@ -2,10 +2,9 @@ package app.humans.employees;
 
 import app.Ambulance;
 import app.global.Instances;
-import app.humans.Human;
 import app.products.DrugEnums;
 
-public class Cashier extends Employee implements Human {
+public class Cashier extends Employee implements Worker {
     boolean hasModifiedListOfDrugs;
     private Ambulance currentAmbulance;
 
@@ -17,7 +16,7 @@ public class Cashier extends Employee implements Human {
         System.out.println("(Cashier) Name: "+super.name+", surname: "+super.surname+", ID: "+super.ID + ", modifiedDrugs:"+hasModifiedListOfDrugs+"\n");
     }
     public void prepareAmbulance(){
-        System.out.println("Cashier has checked the warehouse\n");
+        System.out.println("Cashier " +super.name+" has checked the warehouse\n");
         controlAmounts();
     }
 

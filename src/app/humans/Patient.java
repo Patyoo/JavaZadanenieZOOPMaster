@@ -29,6 +29,7 @@ public class Patient  implements Human {
 
     public void getInspection(Doctor currentDoctor){
         this.confirmation = currentDoctor.makeInspection(this);
+        this.hasConfirmation=true;
     }
 
     public void getDrugs(Cashier currentCashier){
@@ -77,8 +78,13 @@ public class Patient  implements Human {
         this.hasReceipt = hasReceipt;
     }
 
-    public void setHasConfirmation(boolean hasConfirmation) {
-        this.hasConfirmation = hasConfirmation;
+    public void setConfirmation (Confirmation confirmation) {
+        this.confirmation=confirmation;
+        this.hasConfirmation = true;
+    }
+
+    public void showConfirmation(){
+        confirmation.getProductInfo();
     }
 
     public void setCurrentDrug(Drug drug) {

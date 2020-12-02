@@ -1,5 +1,5 @@
 package app.products;
 
 public interface GeneralProduct {
-    public String getProductInfo();
+     String getProductInfo();
 }
